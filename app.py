@@ -14,7 +14,6 @@ import os
 
 nlp = spacy.load('en_core_web_lg')
   # Load Universal Sentence Encoder and later find context similarity for ranking paragraphs
-use_nlp = spacy_universal_sentence_encoder.load_model('en_use_lg')
 
 with st.form(key='my_form'):
     question = st.text_input('Type your query', 'who is mark zuckerberg?')
