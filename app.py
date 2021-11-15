@@ -9,6 +9,7 @@ from MLModel import MLModel
 import streamlit as st
 import requests
 from flatten_json import flatten
+from sentence_transformers import SentenceTransformer, util
 import re
 import os
 
