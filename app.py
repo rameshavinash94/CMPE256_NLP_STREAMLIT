@@ -1,7 +1,6 @@
 
 import spacy
 import pandas as pd
-import spacy_universal_sentence_encoder
 from ContextExtraction import ContextExtraction
 from DocumentRetrival import DocumentRetrival
 from DataWrangling import DataWrangler
@@ -12,7 +11,6 @@ import requests
 from flatten_json import flatten
 import re
 import os
-from sentence_transformers import SentenceTransformer, util
 
 nlp = spacy.load('en_core_web_lg')
   # Load Universal Sentence Encoder and later find context similarity for ranking paragraphs
