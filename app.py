@@ -59,13 +59,13 @@ if submit_button:
   cleaned_df.to_csv("Cleaned_Wiki_contexts.csv")
 
   #create a Context Similarity object
-  context_similarity_obj = ContextSimilarity()
+  context_similarity_obj = ContextSimilarity(model)
 
   #find the Similarites of Different context
   con_list = context_similarity_obj.ContextSimilarity(query,cleaned_df['Wikipedia_Paragraphs'])
   print(con_list)
 
-  context_similarity_df = context_similarity_obj.ConvertToDf(con_list,model)
+  context_similarity_df = context_similarity_obj.ConvertToDf(con_list)
 
   Merged_Df = context_similarity_obj.MergeDf(context_similarity_df,cleaned_df)
 
