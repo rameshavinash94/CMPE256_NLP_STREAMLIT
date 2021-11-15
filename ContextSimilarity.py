@@ -1,5 +1,5 @@
 
-import spacy_universal_sentence_encoder
+from sentence_transformers import SentenceTransformer, util
 import spacy
 import pandas as pd
 from operator import itemgetter
