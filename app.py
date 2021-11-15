@@ -15,6 +15,8 @@ import os
 nlp = spacy.load('en_core_web_lg')
   # Load Universal Sentence Encoder and later find context similarity for ranking paragraphs
 
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+
 with st.form(key='my_form'):
     question = st.text_input('Type your query', 'who is mark zuckerberg?')
     submit_button = st.form_submit_button(label='Submit')
@@ -63,7 +65,7 @@ if submit_button:
   con_list = context_similarity_obj.ContextSimilarity(query,cleaned_df['Wikipedia_Paragraphs'])
   print(con_list)
 
-  context_similarity_df = context_similarity_obj.ConvertToDf(con_list)
+  context_similarity_df = context_similarity_obj.ConvertToDf(con_list,model)
 
   Merged_Df = context_similarity_obj.MergeDf(context_similarity_df,cleaned_df)
 
