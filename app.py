@@ -12,8 +12,7 @@ import requests
 from flatten_json import flatten
 import re
 import os
-
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+from sentence_transformers import SentenceTransformer, util
 
 nlp = spacy.load('en_core_web_lg')
   # Load Universal Sentence Encoder and later find context similarity for ranking paragraphs
@@ -61,7 +60,7 @@ if submit_button:
   cleaned_df.to_csv("Cleaned_Wiki_contexts.csv")
 
   #create a Context Similarity object
-  context_similarity_obj = ContextSimilarity(use_nlp)
+  context_similarity_obj = ContextSimilarity()
 
   #find the Similarites of Different context
   con_list = context_similarity_obj.ContextSimilarity(query,cleaned_df['Wikipedia_Paragraphs'])
