@@ -11,6 +11,9 @@ import streamlit as st
 import requests
 from flatten_json import flatten
 import re
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 nlp = spacy.load('en_core_web_lg')
   # Load Universal Sentence Encoder and later find context similarity for ranking paragraphs
