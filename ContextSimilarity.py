@@ -5,17 +5,18 @@ import pandas as pd
 from operator import itemgetter
 
 class ContextSimilarity:
-    def __init__(self):
+    def __init__(self,model):
+        self.model=model
         self.SimilarityScore=[]
         self.query=''
 
     def ContextSimilarity(self,query,contexts):
         #add doc1 to nlp1 object
         self.query=query
-        Doc_1 = model.encode(query, convert_to_tensor=True)
+        Doc_1 = self.model.encode(query, convert_to_tensor=True)
        
         for context in contexts:
-            Doc_2 = model.encode(contexts, convert_to_tensor=True)
+            Doc_2 = self.model.encode(contexts, convert_to_tensor=True)
             cos_scores = util.pytorch_cos_sim(Doc_1, Doc_2)
             similarity_rate = "{0}".format(cos_scores[0][0])
             self.SimilarityScore.append([context,similarity_rate])
