@@ -62,6 +62,7 @@ if submit_button:
 
   #find the Similarites of Different context
   con_list = context_similarity_obj.ContextSimilarity(query,cleaned_df['Wikipedia_Paragraphs'])
+  print(con_list)
 
   context_similarity_df = context_similarity_obj.ConvertToDf(con_list)
 
